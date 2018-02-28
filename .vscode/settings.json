@@ -1,0 +1,19 @@
+{
+    "files.associations": {
+        "general.h": "c",
+        "string.h": "c",
+        "debug.h": "c",
+        "entry.h": "c",
+        "vstring.h": "c",
+        "keyword.h": "c",
+        "parse.h": "c",
+        "parsers.h": "c",
+        "strlist.h": "c",
+        "main.h": "c",
+        "options.h": "c",
+        "stdarg.h": "c",
+        "args.h": "c",
+        "read.h": "c",
+        "routines.h": "c"
+    }
+}
