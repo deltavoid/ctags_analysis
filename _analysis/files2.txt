@@ -5,36 +5,40 @@ ctags files
 
 gnu_regex/
 
-argproc.c
-args.c
 args.h
 ctags.h
-debug.c
 debug.h
-entry.c
 entry.h
 general.h
-get.c
 get.h
-keyword.c
 keyword.h
+options.h
+parse.h
+parsers.h
+read.h
+readtags.h
+strlist.h
+vstring.h
+
+
+
+argproc.c
+args.c
+debug.c
+entry.c
+get.c
+keyword.c
 lregex.c
 main.c
 options.c
-options.h
 parse.c
-parse.h
-parsers.h
 read.c
-read.h
 readtags.c
-readtags.h
 routines.c
 sort.c
 strlist.c
-strlist.h
 vstring.c
-vstring.h
+
 
 
 //environment
@@ -88,3 +92,38 @@ verilog.c
 vhdl.c
 vim.c
 yacc.c
+
+
+
+//文件依赖
+
+main.c : general.h  <string.h>  debug.h  keyword.h  main.h  options.h  read.h  routines.h
+  
+main.h : general.h  <stdio.h>  vstring.h
+
+debug.h : general.h  entry.h
+
+keyword.h : general.h  parse.h
+
+options.h : general.h  <stdarg.h>  args.h  parse.h  strlist.h  vstring.h
+
+read.h : general.h  <stdio.h>  <ctype.h>  parse.h  vstring.h
+
+routines.h : general.h
+
+
+args.h : general.h  <stdio.h>
+
+parse.h : general.h  parsers.h  strlist.h
+
+entry.h : general.h  <stdio.h>  vstring.h
+
+
+strlist.h : general.h  vstring.h
+
+vstring.h : general.h
+
+parsers.h : 
+
+general.h : 
+

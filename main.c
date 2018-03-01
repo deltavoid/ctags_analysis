@@ -466,7 +466,7 @@ static boolean etagsInclude (void)
 	return (boolean)(Option.etags && Option.etagsInclude != NULL);
 }
 
-static void makeTags (cookedArgs *args)
+static void makeTags (cookedArgs *args) //core program
 {
 	clock_t timeStamps [3];
 	boolean resize = FALSE;
@@ -553,12 +553,15 @@ extern int main (int __unused__ argc, char **argv)
 	args = cArgNewFromArgv (argv);
 	previewFirstOption (args);
 	testEtagsInvocation ();
+
 	initializeParsing ();
 	initOptions ();
 	readOptionConfiguration ();
+	
 	verbose ("Reading initial options from command line\n");
 	parseOptions (args);
 	checkOptions ();
+	
 	makeTags (args);
 
 	/*  Clean up.
